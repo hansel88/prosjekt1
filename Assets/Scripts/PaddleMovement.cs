@@ -25,7 +25,7 @@ public class PaddleMovement : MonoBehaviour {
         }
          */
 
-        transform.Translate(1f * Time.deltaTime * Input.GetAxis("Horizontal"), 0, 0);
+        transform.Translate(0.1f * Time.deltaTime * Input.GetAxis("Horizontal"), 0, 0);
 
 	}
 }
