@@ -9,7 +9,7 @@ public class BallScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        rigidbody.AddForce(100f, 600f, 0);
+        rigidbody.AddForce(100f, 300f, 0);
 	
 	}
 	
