@@ -4,6 +4,19 @@ using System.Collections;
 public class PaddleMovement : MonoBehaviour {
 
 
+    public float paddleSpeed = 1f;
+
+
+    private Vector3 playerPos = new Vector3(0, -2f, 0);
+
+    void Update()
+    {
+        float xPos = transform.position.x + (Input.GetAxis("Horizontal") * paddleSpeed);
+        playerPos = new Vector3(Mathf.Clamp(xPos, -5f, 5f), -4f, 0f);
+        transform.position = playerPos;
+
+    }
+    /*
 
     public float paddleSpeed = 1f;
 
@@ -31,9 +44,11 @@ public class PaddleMovement : MonoBehaviour {
         {
             Debug.Log("RIGHT!");
         }
-         */
+         /*
+ 
 
         transform.Translate(0.1f * Time.deltaTime * Input.GetAxis("Horizontal"), 0, 0);
-
+        
 	}
+    */
 }
