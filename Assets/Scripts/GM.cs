@@ -8,12 +8,16 @@ public class GM : MonoBehaviour
     public int lives = 3;
     public int bricks = 72;
     public float resetDelay = 1f;
+    public GameObject paddle;
+    
     public Text livesText;
     public GameObject gameOver;
     public GameObject youWon;
+    /*
     public GameObject bricksPrefab;
-    public GameObject paddle;
+
     public GameObject deathParticles;
+     * */
     public static GM instance = null;
 
     private GameObject clonePaddle;
@@ -33,21 +37,21 @@ public class GM : MonoBehaviour
     public void Setup()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-        Instantiate(bricksPrefab, transform.position, Quaternion.identity);
+       //Instantiate(bricksPrefab, transform.position, Quaternion.identity);
     }
 
     void CheckGameOver()
     {
         if (bricks < 1)
         {
-            youWon.SetActive(true);
+           // youWon.SetActive(true);
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
         }
 
         if (lives < 1)
         {
-            gameOver.SetActive(true);
+            //gameOver.SetActive(true);
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
         }
@@ -64,8 +68,8 @@ public class GM : MonoBehaviour
     {
         lives--;
         livesText.text = "Lives: " + lives;
-        Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
-        Destroy(clonePaddle);
+        //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
+        //Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
     }
