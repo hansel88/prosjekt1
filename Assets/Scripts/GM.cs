@@ -14,7 +14,7 @@ public class GM : MonoBehaviour
     public GameObject gameOver;
     public GameObject youWon;
     
-    //public GameObject bricksPrefab;
+    public GameObject bricksPrefab;
     /*
     public GameObject deathParticles;
      * */
@@ -38,7 +38,7 @@ public class GM : MonoBehaviour
     public void Setup()
     {
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-        //Instantiate(bricksPrefab, transform.position, Quaternion.identity);
+        Instantiate(bricksPrefab, transform.position, Quaternion.identity);
     }
 
     void CheckGameOver()
