@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PaddleMovement : MonoBehaviour {
 
+    
 
     public float paddleSpeed = 0.1f;
 
@@ -15,6 +17,19 @@ public class PaddleMovement : MonoBehaviour {
         playerPos = new Vector3(Mathf.Clamp(xPos, -5f, 5f), -4f, 0f);
         transform.position = playerPos;
 
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        foreach (ContactPoint contact in col.contacts)
+        {
+            if (contact.thisCollider == collider)
+            {
+                float english = contact.point.x - transform.position.x;
+
+                contact.otherCollider.rigidbody.AddForce(400f * english, 0, 0);
+            }
+        }
     }
     /*
 
