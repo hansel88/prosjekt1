@@ -1447,7 +1447,7 @@ Transform:
   m_GameObject: {fileID: 307414278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 1.60000002, y: .200000003, z: 1}
+  m_LocalScale: {x: 2, y: .200000003, z: 1}
   m_Children:
   - {fileID: 1982060415}
   m_Father: {fileID: 0}
@@ -1741,7 +1741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478660, guid: db25c645ef5200c4f8b5cacdca4a47ef, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 478660, guid: db25c645ef5200c4f8b5cacdca4a47ef, type: 2}
       propertyPath: m_LocalScale.z
@@ -6346,7 +6346,7 @@ MonoBehaviour:
   lives: 3
   bricks: 72
   resetDelay: 1
-  paddle: {fileID: 307414278}
+  paddle: {fileID: 0}
   livesText: {fileID: 1523614323}
   gameOver: {fileID: 874375014}
   youWon: {fileID: 878760555}
@@ -7063,7 +7063,7 @@ Transform:
   m_GameObject: {fileID: 1982060409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.50000024, z: 0}
-  m_LocalScale: {x: .300000012, y: 2.5, z: .5}
+  m_LocalScale: {x: .300000012, y: 3, z: .5}
   m_Children: []
   m_Father: {fileID: 307414284}
   m_RootOrder: 0
@@ -7297,7 +7297,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2007803954}
   m_LocalRotation: {x: .183198646, y: 0, z: 0, w: .983075917}
-  m_LocalPosition: {x: 7.13100004, y: 3.56200004, z: -18.4659996}
+  m_LocalPosition: {x: 7.13000011, y: 8.14999962, z: -30.3600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
