@@ -1,0 +1,80 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 840M   (ID=0x1341)
+    Vendor:   NVIDIA
+    VRAM:     1972 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.042 seconds
+desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 2.130997 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1116.
+Total: 2.375187 ms (FindLiveObjects: 0.182180 ms CreateObjectMapping: 0.059871 ms MarkObjects: 0.620097 ms  DeleteObjects: 0.049180 ms)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 2.058296 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1116.
+Total: 0.724017 ms (FindLiveObjects: 0.042337 ms CreateObjectMapping: 0.018816 ms MarkObjects: 0.207411 ms  DeleteObjects: 0.005559 ms)
+
