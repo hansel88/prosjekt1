@@ -25,6 +25,9 @@ public class GM : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+
+        Screen.showCursor = false;
+
         Debug.Log("awake in GM called");
         if (instance == null)
             instance = this;
