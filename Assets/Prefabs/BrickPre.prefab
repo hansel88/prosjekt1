@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017d47b2a1ff2f24582c00fa65029f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickParticle: {fileID: 0}
+  sound1: {fileID: 0}
+  sound: {fileID: 103190, guid: 485cb0b1647458441bd5e9fa1534056b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
