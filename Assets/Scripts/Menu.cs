@@ -1,20 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Menu : MonoBehaviour {
+public class Menu : MonoBehaviour 
+{
 
-    void OnGUI()
+   public bool muteToggle = false;
+
+    public void ChangeToScene(int sceneToChangeTo)
     {
+        Application.LoadLevel(sceneToChangeTo);
+    }
 
-        if(GUI.Button(new Rect(Screen.width / 3.2f, Screen.height / 2.6f, Screen.width / 2.8f, Screen.height / 4), ""));
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Game is exiting");
+    }
+    
+    public void MuteGame(){
+
+        if (muteToggle == true)
         {
-            Application.LoadLevel(1);
+            AudioListener.volume = 0;
         }
-
-        if(GUI.Button(new Rect(Screen.width / 3.2f, Screen.height / 1.6f, Screen.width / 2.8f, Screen.height / 4), ""));
+        if (muteToggle == false)
         {
-            Application.Quit();
+            AudioListener.volume = 1;
         }
         
+        
+        
     }
+
+   
+
+
+
+
 }
