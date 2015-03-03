@@ -20,6 +20,7 @@ public class GM : MonoBehaviour
     public GameObject rampageSound;
     public GameObject godlikeSound;
     public GameObject backGroundMusicLev1;
+    public GameObject backGroundMusicLev2;
 
     
     public GameObject bricksPrefab;
@@ -42,13 +43,20 @@ public class GM : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        Instantiate(backGroundMusicLev1);
+        switch (getCurrentLevel())
+        {
+            case 1: Instantiate(backGroundMusicLev1); break;
+            case 2: Instantiate(backGroundMusicLev2); break;
+            default: break;
+        }
+        
         Setup();
 
     }
 
     public void Setup()
     {
+        Time.timeScale = 1f;
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
     }
@@ -59,7 +67,7 @@ public class GM : MonoBehaviour
         {
             youWon.SetActive(true);
             Time.timeScale = .25f;
-            Invoke("Reset", resetDelay);
+            Invoke("loadNextLevel", 1f);
         }
 
         if (lives < 1)
@@ -80,7 +88,7 @@ public class GM : MonoBehaviour
     public void LoseLife()
     {
        // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
-       // backGroundMusicLev1.audio.volume = 0.1f;
+        // backGroundMusicLev1.audio.volume = 0.1f;
         //Invoke("setMaxVolumeForBackGroundMusic", 3);
         lives--;
         livesText.text = "Lives: " + lives;
@@ -92,7 +100,8 @@ public class GM : MonoBehaviour
 
     private void setMaxVolumeForBackGroundMusic()
     {
-        backGroundMusicLev1.audio.volume = 1f;
+        Debug.Log("setmaxvolum called");
+        backGroundMusicLev1.GetComponent<AudioSource>().volume = 1f;
     }
 
     void SetupPaddle()
@@ -109,21 +118,51 @@ public class GM : MonoBehaviour
 
     private void playSoundCheck()
     {
-        if (bricks == 60 || bricks == 30)
+        switch (getCurrentLevel())
         {
-            GameObject.Instantiate(holyShitSound);
+            case 1:
+                if (bricks == 60 || bricks == 30)
+                {
+                    GameObject.Instantiate(holyShitSound);
+                }
+                else if (bricks == 40 || bricks == 15)
+                {
+                    GameObject.Instantiate(rampageSound);
+                }
+                else if (bricks == 20 || bricks == 50)
+                {
+                    GameObject.Instantiate(unstoppableSound);
+                }
+                else if (bricks == 2 || bricks == 35)
+                {
+                    GameObject.Instantiate(godlikeSound);
+                }
+                break;
+            case 2: break;
+            default: break;
         }
-        else if (bricks == 40 || bricks == 15)
+
+    }
+
+    public int getCurrentLevel()
+    {
+        switch (Application.loadedLevelName)
         {
-            GameObject.Instantiate(rampageSound);
+            case "Main Menu": return 0;
+            case "Scene1": return 1;
+            case "Scene2": return 2;
+            default: return 0;
         }
-        else if (bricks == 20 || bricks == 50)
+    }
+
+    private void loadNextLevel()
+    {
+        Debug.Log("load next level called: current:" + getCurrentLevel());
+        switch(getCurrentLevel())
         {
-            GameObject.Instantiate(unstoppableSound);
-        }
-        else if (bricks == 2 || bricks == 35)
-        {
-            GameObject.Instantiate(godlikeSound);
+            case 0: Application.LoadLevel("Scene1"); break;
+            case 1: Application.LoadLevel("Scene2"); break;
+            case 2: Application.LoadLevel("Main Menu"); break;
         }
     }
 }

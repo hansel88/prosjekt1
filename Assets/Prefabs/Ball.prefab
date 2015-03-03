@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 178660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.50000024, z: 0}
-  m_LocalScale: {x: .300000012, y: 2.5, z: .5}
+  m_LocalScale: {x: .200000003, y: 2, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ Renderer:
   m_GameObject: {fileID: 178660}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42198b891892fdb4ba2b342806ba5eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballInitialVelocity: 400
+  ballInitialVelocity: 500
 --- !u!135 &13578660
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -155,7 +155,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: .200000003
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
