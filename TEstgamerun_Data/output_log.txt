@@ -12,9 +12,101 @@ Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout
 Loading D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.046 seconds
+- Completed reload, in  0.042 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\School prog\Unity\Unity Projects\Git Push Project\Breakout git hub mappe\prosjekt1\TEstgamerun_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 2.023656 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1110.
+Total: 8.291344 ms (FindLiveObjects: 0.040199 ms CreateObjectMapping: 0.016250 ms MarkObjects: 0.166784 ms  DeleteObjects: 7.420214 ms)
+
+UnloadTime: 4.431772 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1110.
+Total: 1.596857 ms (FindLiveObjects: 0.087668 ms CreateObjectMapping: 0.050035 ms MarkObjects: 0.369064 ms  DeleteObjects: 0.011974 ms)
+
+UnloadTime: 2.445322 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1110.
+Total: 1.504484 ms (FindLiveObjects: 0.085530 ms CreateObjectMapping: 0.039771 ms MarkObjects: 0.379756 ms  DeleteObjects: 0.012401 ms)
+
+UnloadTime: 3.510607 ms
+awake in GM called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1110.
+Total: 2.126720 ms (FindLiveObjects: 0.119742 ms CreateObjectMapping: 0.056450 ms MarkObjects: 0.549107 ms  DeleteObjects: 0.017106 ms)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+OnCollisionEnter in Bicks.cs called
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
