@@ -19,6 +19,7 @@ public class GM : MonoBehaviour
     public GameObject holyShitSound;
     public GameObject rampageSound;
     public GameObject godlikeSound;
+    public GameObject backGroundMusicLev1;
 
     
     public GameObject bricksPrefab;
@@ -41,6 +42,7 @@ public class GM : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
+        Instantiate(backGroundMusicLev1);
         Setup();
 
     }
@@ -77,12 +79,20 @@ public class GM : MonoBehaviour
 
     public void LoseLife()
     {
+       // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
+       // backGroundMusicLev1.audio.volume = 0.1f;
+        //Invoke("setMaxVolumeForBackGroundMusic", 3);
         lives--;
         livesText.text = "Lives: " + lives;
         //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
+    }
+
+    private void setMaxVolumeForBackGroundMusic()
+    {
+        backGroundMusicLev1.audio.volume = 1f;
     }
 
     void SetupPaddle()
