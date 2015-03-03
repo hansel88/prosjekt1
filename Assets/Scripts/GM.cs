@@ -26,7 +26,7 @@ public class GM : MonoBehaviour
     void Awake()
     {
 
-        Screen.showCursor = false;
+       // Screen.showCursor = false;
 
         Debug.Log("awake in GM called");
         if (instance == null)
