@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbd32ae44049e64f985a5e66c1b173b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
- 4bc8eb47c670b474c8f2fd621857673e03379feb
 --- !u!1 &332462050
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +882,6 @@ MonoBehaviour:
   livesText: {fileID: 1523614323}
   gameOver: {fileID: 874375014}
   youWon: {fileID: 878760555}
- 4bc8eb47c670b474c8f2fd621857673e03379feb
 --- !u!4 &1636631140
 Transform:
   m_ObjectHideFlags: 0

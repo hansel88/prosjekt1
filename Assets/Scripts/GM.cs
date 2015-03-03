@@ -45,7 +45,7 @@ public class GM : MonoBehaviour
 
         switch (getCurrentLevel())
         {
-            case 1: Instantiate(backGroundMusicLev1); break;
+           // case 1: Instantiate(backGroundMusicLev1); break;
             case 2: Instantiate(backGroundMusicLev2); break;
             default: break;
         }
