@@ -13,6 +13,14 @@ public class GM : MonoBehaviour
     public Text livesText;
     public GameObject gameOver;
     public GameObject youWon;
+    public GameObject youWonSound;
+    public GameObject gameOverSound;
+    public GameObject unstoppableSound;
+    public GameObject holyShitSound;
+    public GameObject rampageSound;
+    public GameObject godlikeSound;
+    public GameObject backGroundMusicLev1;
+
     
     public GameObject bricksPrefab;
     /*
@@ -34,6 +42,7 @@ public class GM : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
+        Instantiate(backGroundMusicLev1);
         Setup();
 
     }
@@ -70,12 +79,20 @@ public class GM : MonoBehaviour
 
     public void LoseLife()
     {
+       // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
+       // backGroundMusicLev1.audio.volume = 0.1f;
+        //Invoke("setMaxVolumeForBackGroundMusic", 3);
         lives--;
         livesText.text = "Lives: " + lives;
         //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
+    }
+
+    private void setMaxVolumeForBackGroundMusic()
+    {
+        backGroundMusicLev1.audio.volume = 1f;
     }
 
     void SetupPaddle()
@@ -85,7 +102,28 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
+        Invoke("playSoundCheck", 0.5f);
         bricks--;
         CheckGameOver();
+    }
+
+    private void playSoundCheck()
+    {
+        if (bricks == 60 || bricks == 30)
+        {
+            GameObject.Instantiate(holyShitSound);
+        }
+        else if (bricks == 40 || bricks == 15)
+        {
+            GameObject.Instantiate(rampageSound);
+        }
+        else if (bricks == 20 || bricks == 50)
+        {
+            GameObject.Instantiate(unstoppableSound);
+        }
+        else if (bricks == 2 || bricks == 35)
+        {
+            GameObject.Instantiate(godlikeSound);
+        }
     }
 }

@@ -35,7 +35,7 @@ using System.Collections;
 
 public class BallScript : MonoBehaviour {
 
-    public float ballInitialVelocity = 400f;
+    public float ballInitialVelocity = 650f;
 
     private Rigidbody rb;
     private bool ballInPlay;

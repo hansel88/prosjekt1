@@ -19,7 +19,7 @@ public class Bricks : MonoBehaviour {
 
     void OnCollisionEnter (Collision other)
     {
-        //Instantiate(sound);
+        Debug.Log("OnCollisionEnter in Bricks.cs called");
 
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
@@ -28,20 +28,12 @@ public class Bricks : MonoBehaviour {
         {
             case 1: GameObject.Instantiate(sound); break;
             case 2: GameObject.Instantiate(sound2); break;
-            case 3: GameObject.Instantiate(sound3); break;
+            case 3: GameObject.Instantiate(sound2); break;
             default: GameObject.Instantiate(sound); break;
         }
-       
-        //Object s1 = Instantiate(sound1, transform.position, Quaternion.identity);
-        Debug.Log("FITTEHÆLVETTE");
-        Debug.Log("OnCollisionEnter in Bricks.cs called");
-        Debug.Log("post audio");
-       
-        //Instantiate(brickParticle, transform.position, Quaternion.identity);
+
         GM.instance.DestroyBrick();
         Destroy(gameObject); 
-        //audio.PlayOneShot(sound1);
-
     }   
 
 
