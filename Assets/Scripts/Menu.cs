@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour 
 {
+
 
    public bool muteToggle = false;
 
@@ -23,18 +25,8 @@ public class Menu : MonoBehaviour
         {
             AudioListener.volume = 0;
         }
-        if (muteToggle == false)
-        {
-            AudioListener.volume = 1;
-        }
-        
-        
-        
-    }
-
    
-
-
+    }
 
 
 }

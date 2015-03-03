@@ -14,20 +14,29 @@ public class PaddleMovement : MonoBehaviour {
     void Update()
     {
         float xPos = transform.position.x + (Input.GetAxis("Horizontal") * paddleSpeed);
-        playerPos = new Vector3(Mathf.Clamp(xPos, -5f, 5f), -4f, 0f);
+        playerPos = new Vector3(Mathf.Clamp(xPos, -5.7f, 5.7f), -4f, 0f);
         transform.position = playerPos;
-
     }
 
     void OnCollisionEnter(Collision col)
     {
+/*
+        Vector3 PO = col.other.transform.position;
+        Vector3 NO = new Vector3(0, 1, 0);
+        Vector3 NO_PO_Scaled = Vector3.Scale(NO, PO);
+        NO_PO_Scaled = Vector3.Scale(NO_PO_Scaled, new Vector3(2, 2, 2));
+        NO_PO_Scaled = Vector3.Scale(NO_PO_Scaled, NO);
+        Vector3 OQ = PO - NO_PO_Scaled;
+        
+        col.other.rigidbody.AddForceAtPosition(new Vector3(650f, 0, 0), OQ);     
+ * 
+ * */
         foreach (ContactPoint contact in col.contacts)
         {
             if (contact.thisCollider == collider)
             {
-                float english = contact.point.x - transform.position.x;
-
-                contact.otherCollider.rigidbody.AddForce(400f * english, 0, 0);
+                float z = contact.point.x - transform.position.x;
+                contact.otherCollider.rigidbody.AddForce(600f, 0, 0);
             }
         }
     }

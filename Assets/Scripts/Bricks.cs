@@ -11,6 +11,10 @@ public class Bricks : MonoBehaviour {
     public GameObject sound2;
     public GameObject sound3;
 
+    public GameObject soundLevel2;
+    public GameObject sound2Level2;
+    public GameObject sound3Level3;
+
 
     void awake()
     {
@@ -19,29 +23,38 @@ public class Bricks : MonoBehaviour {
 
     void OnCollisionEnter (Collision other)
     {
-        //Instantiate(sound);
+        Debug.Log("OnCollisionEnter in Bricks.cs called");
 
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
 
-        switch(random)
+
+        switch (GM.instance.getCurrentLevel())
         {
-            case 1: GameObject.Instantiate(sound); break;
-            case 2: GameObject.Instantiate(sound2); break;
-            case 3: GameObject.Instantiate(sound3); break;
-            default: GameObject.Instantiate(sound); break;
+            case 1:
+                switch (random)
+                {
+                    case 1: GameObject.Instantiate(sound); break;
+                    case 2: GameObject.Instantiate(sound2); break;
+                    case 3: GameObject.Instantiate(sound2); break;
+                    default: GameObject.Instantiate(sound); break;
+                }
+                break;
+            case 2:
+                switch (random)
+                {
+                    case 1: GameObject.Instantiate(soundLevel2); break;
+                    case 2: GameObject.Instantiate(sound2Level2); break;
+                    case 3: GameObject.Instantiate(sound3Level3); break;
+                    default: GameObject.Instantiate(soundLevel2); break;
+                }
+                break;
+            default: break;
         }
-       
-        //Object s1 = Instantiate(sound1, transform.position, Quaternion.identity);
-        Debug.Log("FITTEHÆLVETTE");
-        Debug.Log("OnCollisionEnter in Bricks.cs called");
-        Debug.Log("post audio");
-       
-        //Instantiate(brickParticle, transform.position, Quaternion.identity);
+
+
         GM.instance.DestroyBrick();
         Destroy(gameObject); 
-        //audio.PlayOneShot(sound1);
-
     }   
 
 

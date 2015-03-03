@@ -13,6 +13,15 @@ public class GM : MonoBehaviour
     public Text livesText;
     public GameObject gameOver;
     public GameObject youWon;
+    public GameObject youWonSound;
+    public GameObject gameOverSound;
+    public GameObject unstoppableSound;
+    public GameObject holyShitSound;
+    public GameObject rampageSound;
+    public GameObject godlikeSound;
+    public GameObject backGroundMusicLev1;
+    public GameObject backGroundMusicLev2;
+
     
     public GameObject bricksPrefab;
     /*
@@ -34,12 +43,20 @@ public class GM : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
+        switch (getCurrentLevel())
+        {
+            case 1: Instantiate(backGroundMusicLev1); break;
+            case 2: Instantiate(backGroundMusicLev2); break;
+            default: break;
+        }
+        
         Setup();
 
     }
 
     public void Setup()
     {
+        Time.timeScale = 1f;
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
     }
@@ -50,7 +67,7 @@ public class GM : MonoBehaviour
         {
             youWon.SetActive(true);
             Time.timeScale = .25f;
-            Invoke("Reset", resetDelay);
+            Invoke("loadNextLevel", 1f);
         }
 
         if (lives < 1)
@@ -70,12 +87,21 @@ public class GM : MonoBehaviour
 
     public void LoseLife()
     {
+       // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
+        // backGroundMusicLev1.audio.volume = 0.1f;
+        //Invoke("setMaxVolumeForBackGroundMusic", 3);
         lives--;
         livesText.text = "Lives: " + lives;
         //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
+    }
+
+    private void setMaxVolumeForBackGroundMusic()
+    {
+        Debug.Log("setmaxvolum called");
+        backGroundMusicLev1.GetComponent<AudioSource>().volume = 1f;
     }
 
     void SetupPaddle()
@@ -85,7 +111,58 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
+        Invoke("playSoundCheck", 0.5f);
         bricks--;
         CheckGameOver();
+    }
+
+    private void playSoundCheck()
+    {
+        switch (getCurrentLevel())
+        {
+            case 1:
+                if (bricks == 60 || bricks == 30)
+                {
+                    GameObject.Instantiate(holyShitSound);
+                }
+                else if (bricks == 40 || bricks == 15)
+                {
+                    GameObject.Instantiate(rampageSound);
+                }
+                else if (bricks == 20 || bricks == 50)
+                {
+                    GameObject.Instantiate(unstoppableSound);
+                }
+                else if (bricks == 2 || bricks == 35)
+                {
+                    GameObject.Instantiate(godlikeSound);
+                }
+                break;
+            case 2: break;
+            default: break;
+        }
+
+    }
+
+    public int getCurrentLevel()
+    {
+        switch (Application.loadedLevelName)
+        {
+            case "Main Menu": return 0;
+            case "Scene1": return 1;
+            case "Scene2": return 2;
+            default: return 0;
+        }
+    }
+
+    private void loadNextLevel()
+    {
+        Debug.Log("load next level called: current:" + getCurrentLevel());
+        switch(getCurrentLevel())
+        {
+            case 0: Application.LoadLevel("Scene1"); break;
+            case 1: Application.LoadLevel("Scene2"); break;
+            case 2: Application.LoadLevel("Main Menu"); break;
+        }
     }
 }
