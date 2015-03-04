@@ -20,6 +20,9 @@ public class GM : MonoBehaviour
     public GameObject whickedSickSound;
     public GameObject rampageSound;
     public GameObject godlikeSound;
+    public GameObject unstoppableSound2;
+    public GameObject rampageSound2;
+    public GameObject godlikeSound2;
     public GameObject backGroundMusicLev1;
     public GameObject backGroundMusicLev2;
 
@@ -133,13 +136,15 @@ public class GM : MonoBehaviour
 
     private void playSoundCheck()
     {
-        if(this.BricksHitInARow >= 4)
+        int currentLevel = getCurrentLevel();
+
+        if(currentLevel == 1 && this.BricksHitInARow == 4)
         {
             GameObject.Instantiate(whickedSickSound);
         }
         else
         {
-            switch (getCurrentLevel())
+            switch (currentLevel)
             {
                 case 1:
                     if (bricks == 60 || bricks == 30)
@@ -159,7 +164,19 @@ public class GM : MonoBehaviour
                         GameObject.Instantiate(godlikeSound);
                     }
                     break;
-                case 2: break;
+                case 2:
+                    if (bricks == 60 || bricks == 30)
+                    {
+                        GameObject.Instantiate(rampageSound2);
+                    }
+                    else if (bricks == 40 || bricks == 15)
+                    {
+                        GameObject.Instantiate(godlikeSound2);
+                    }
+                    else if (bricks == 20 || bricks == 50)
+                    {
+                        GameObject.Instantiate(unstoppableSound2);
+                    }break;
                 default: break;
             }
         }
@@ -178,7 +195,6 @@ public class GM : MonoBehaviour
 
     private void loadNextLevel()
     {
-        Debug.Log("load next level called: current:" + getCurrentLevel());
         switch(getCurrentLevel())
         {
             case 0: Application.LoadLevel("Scene1"); break;

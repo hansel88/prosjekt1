@@ -11,7 +11,7 @@ GameObject:
   - 82: {fileID: 8203190}
   - 114: {fileID: 11403190}
   m_Layer: 0
-  m_Name: whickedSick
+  m_Name: dominating2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 103190}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: fca94a087bb7447518bfac8a9021beb0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d5af1cfc9acd34e46a59d59e49c96eb2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .800000012
   m_Pitch: 1
