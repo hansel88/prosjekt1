@@ -29,9 +29,6 @@ public class GM : MonoBehaviour
 
     
     public GameObject bricksPrefab;
-    /*
-    public GameObject deathParticles;
-     * */
     public static GM instance = null;
 
     private GameObject clonePaddle;
@@ -119,7 +116,6 @@ public class GM : MonoBehaviour
         resetHitCount();
         lives--;
         livesText.text = "Lives: " + lives;
-        //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
@@ -154,19 +150,21 @@ public class GM : MonoBehaviour
         }
 
         ScoreText.text = "Score: " + this.Score;
-        Invoke("playSoundCheck", 0.5f);
+        Invoke("checkAwesomeness", 0.5f);
         bricks--;
         CheckGameOver();
     }
 
-    private void playSoundCheck()
+    private void checkAwesomeness()
     {
         int currentLevel = getCurrentLevel();
 
         if(this.BricksHitInARow == 4)
         {
             if(currentLevel == 1)
+            {
                 GameObject.Instantiate(whickedSickSound);
+            }
             else if(currentLevel == 2)
                 GameObject.Instantiate(dominatingSound2);
         }
