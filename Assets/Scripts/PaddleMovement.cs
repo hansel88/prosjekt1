@@ -31,9 +31,13 @@ public class PaddleMovement : MonoBehaviour {
         col.other.rigidbody.AddForceAtPosition(new Vector3(650f, 0, 0), OQ);     
  * 
  * */
+        if(GM.instance.bricks != GM.instance.LastNumberOfBricksRemaining)
+        {
+            GM.instance.PaddleHitCountWithBricksDestroyedInBetween++;
+        }
         GM.instance.BricksHitInARow = 0;
-        GM.instance.HitCount++;
-        int hits = GM.instance.HitCount;
+        GM.instance.PaddleHitCount++;
+        int hits = GM.instance.PaddleHitCount;
         float force = 300f;
         if(hits < 4)
         {
@@ -43,7 +47,7 @@ public class PaddleMovement : MonoBehaviour {
         {
             force = 350f;
         }
-        else if(hits >= 12)
+        else if(hits >= 12) 
         {
             force = 400f;
         }
