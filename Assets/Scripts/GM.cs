@@ -11,6 +11,7 @@ public class GM : MonoBehaviour
     public GameObject paddle;
     
     public Text livesText;
+    public Text ScoreText;
     public GameObject gameOver;
     public GameObject youWon;
     public GameObject youWonSound;
@@ -21,7 +22,7 @@ public class GM : MonoBehaviour
     public GameObject rampageSound;
     public GameObject godlikeSound;
     public GameObject unstoppableSound2;
-    public GameObject rampageSound2;
+    public GameObject dominatingSound2;
     public GameObject godlikeSound2;
     public GameObject backGroundMusicLev1;
     public GameObject backGroundMusicLev2;
@@ -35,18 +36,28 @@ public class GM : MonoBehaviour
 
     private GameObject clonePaddle;
     private int hitCount = 0;
-    public int HitCount { get; set; }
+    public int HitCount {
+        get { return this.hitCount; }
+        set { this.hitCount = value; }
+    }
 
     private int bricksHitInARow = 0;
-    public int BricksHitInARow { get; set; }
+    public int BricksHitInARow
+    {
+        get { return this.bricksHitInARow; }
+        set { this.bricksHitInARow = value; }
+    }
+
+    private int score = 0;
+    public int Score
+    {
+        get { return this.score; }
+        set { this.score = value; }
+    }
     
     // Use this for initialization
     void Awake()
     {
-
-       // Screen.showCursor = false;
-
-        Debug.Log("awake in GM called");
         if (instance == null)
             instance = this;
         else if (instance != this)
@@ -78,6 +89,7 @@ public class GM : MonoBehaviour
             Time.timeScale = .25f;
             Invoke("loadNextLevel", 1f);
             this.BricksHitInARow = 0;
+            this.Score = 0;
         }
 
         if (lives < 1)
@@ -86,6 +98,7 @@ public class GM : MonoBehaviour
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
             this.BricksHitInARow = 0;
+            this.Score = 0;
         }
 
     }
@@ -94,6 +107,7 @@ public class GM : MonoBehaviour
     {
         Time.timeScale = 1f;
         Application.LoadLevel(Application.loadedLevel);
+        ScoreText.text = "Score: 0";
     }
 
     public void LoseLife()
@@ -129,6 +143,17 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
+        Debug.Log("hits in a row: " + this.BricksHitInARow);
+        if(this.BricksHitInARow <= 1)
+        {
+            this.Score += 1;
+        }
+        else
+        {
+            this.Score += this.BricksHitInARow * 2;
+        }
+
+        ScoreText.text = "Score: " + this.Score;
         Invoke("playSoundCheck", 0.5f);
         bricks--;
         CheckGameOver();
@@ -138,9 +163,12 @@ public class GM : MonoBehaviour
     {
         int currentLevel = getCurrentLevel();
 
-        if(currentLevel == 1 && this.BricksHitInARow == 4)
+        if(this.BricksHitInARow == 4)
         {
-            GameObject.Instantiate(whickedSickSound);
+            if(currentLevel == 1)
+                GameObject.Instantiate(whickedSickSound);
+            else if(currentLevel == 2)
+                GameObject.Instantiate(dominatingSound2);
         }
         else
         {
@@ -165,9 +193,9 @@ public class GM : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (bricks == 60 || bricks == 30)
+                    if (bricks == 30)
                     {
-                        GameObject.Instantiate(rampageSound2);
+                        GameObject.Instantiate(dominatingSound2);
                     }
                     else if (bricks == 40 || bricks == 15)
                     {
