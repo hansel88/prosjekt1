@@ -12,6 +12,8 @@ public class Bricks : MonoBehaviour {
     public GameObject sound2Level2;
     public GameObject sound3Level3;
 
+    public GameObject particles;
+
 
     void awake()
     {
@@ -24,6 +26,7 @@ public class Bricks : MonoBehaviour {
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
         GM.instance.BricksHitInARow++;
+        Instantiate(particles, this.transform.position, Quaternion.identity);
 
         switch (GM.instance.getCurrentLevel())
         {
