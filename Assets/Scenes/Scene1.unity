@@ -891,9 +891,9 @@ MonoBehaviour:
   whickedSickSound: {fileID: 103190, guid: 1b9eb4a16e5dc53498344e319c85ae35, type: 2}
   rampageSound: {fileID: 103190, guid: dc0fa2ebac6e78a4581e9028988dcbeb, type: 2}
   godlikeSound: {fileID: 103190, guid: 04d2b6d5546fc8e43ad48645280d90b9, type: 2}
-  unstoppableSound2: {fileID: 0}
-  rampageSound2: {fileID: 0}
-  godlikeSound2: {fileID: 0}
+  unstoppableSound2: {fileID: 103190, guid: dec25ea8f3de1e3499780de8535372fc, type: 2}
+  dominatingSound2: {fileID: 103190, guid: b7fcee3c1037d56488e0d2daf18e80a9, type: 2}
+  godlikeSound2: {fileID: 103190, guid: 552cda08f6a19754bbd2788742891744, type: 2}
   backGroundMusicLev1: {fileID: 135296, guid: dddeb5e181fdb15418882fb10ea9261a, type: 2}
   backGroundMusicLev2: {fileID: 135296, guid: ced423c20b7a50e4089a4daacb5987da, type: 2}
   bricksPrefab: {fileID: 122148, guid: 23b5321a8ed2f6242aa85d105a1c5c06, type: 2}

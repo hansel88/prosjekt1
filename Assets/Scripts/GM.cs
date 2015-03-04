@@ -21,7 +21,7 @@ public class GM : MonoBehaviour
     public GameObject rampageSound;
     public GameObject godlikeSound;
     public GameObject unstoppableSound2;
-    public GameObject rampageSound2;
+    public GameObject dominatingSound2;
     public GameObject godlikeSound2;
     public GameObject backGroundMusicLev1;
     public GameObject backGroundMusicLev2;
@@ -137,10 +137,14 @@ public class GM : MonoBehaviour
     private void playSoundCheck()
     {
         int currentLevel = getCurrentLevel();
+        Debug.Log("level: " + currentLevel);
 
-        if(currentLevel == 1 && this.BricksHitInARow == 4)
+        if(this.BricksHitInARow == 4)
         {
-            GameObject.Instantiate(whickedSickSound);
+            if(currentLevel == 1)
+                GameObject.Instantiate(whickedSickSound);
+            else if(currentLevel == 2)
+                GameObject.Instantiate(dominatingSound2);
         }
         else
         {
@@ -165,9 +169,9 @@ public class GM : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (bricks == 60 || bricks == 30)
+                    if (bricks == 30)
                     {
-                        GameObject.Instantiate(rampageSound2);
+                        GameObject.Instantiate(dominatingSound2);
                     }
                     else if (bricks == 40 || bricks == 15)
                     {
