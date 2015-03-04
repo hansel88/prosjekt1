@@ -23,8 +23,6 @@ public class Bricks : MonoBehaviour {
 
     void OnCollisionEnter (Collision other)
     {
-        Debug.Log("OnCollisionEnter in Bricks.cs called");
-
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
 

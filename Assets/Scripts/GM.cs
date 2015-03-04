@@ -30,6 +30,8 @@ public class GM : MonoBehaviour
     public static GM instance = null;
 
     private GameObject clonePaddle;
+    private int hitCount = 0;
+    public int HitCount { get; set; }
 
     // Use this for initialization
     void Awake()
@@ -45,7 +47,7 @@ public class GM : MonoBehaviour
 
         switch (getCurrentLevel())
         {
-           // case 1: Instantiate(backGroundMusicLev1); break;
+            case 1: Instantiate(backGroundMusicLev1); break;
             case 2: Instantiate(backGroundMusicLev2); break;
             default: break;
         }
@@ -90,12 +92,18 @@ public class GM : MonoBehaviour
        // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
         // backGroundMusicLev1.audio.volume = 0.1f;
         //Invoke("setMaxVolumeForBackGroundMusic", 3);
+        resetHitCount();
         lives--;
         livesText.text = "Lives: " + lives;
         //Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
         CheckGameOver();
+    }
+
+    private void resetHitCount()
+    {
+        this.HitCount = 0;
     }
 
     private void setMaxVolumeForBackGroundMusic()

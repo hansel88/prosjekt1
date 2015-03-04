@@ -31,12 +31,28 @@ public class PaddleMovement : MonoBehaviour {
         col.other.rigidbody.AddForceAtPosition(new Vector3(650f, 0, 0), OQ);     
  * 
  * */
+        GM.instance.HitCount++;
+        int hits = GM.instance.HitCount;
+        float force = 500f;
+        if(hits < 4)
+        {
+            force = 500f;
+        }
+        else if(hits >= 4 && hits <= 11)
+        {
+            force = 550f;
+        }
+        else if(hits >= 12)
+        {
+            force = 600f;
+        }
+        
         foreach (ContactPoint contact in col.contacts)
         {
             if (contact.thisCollider == collider)
             {
                 float z = contact.point.x - transform.position.x;
-                contact.otherCollider.rigidbody.AddForce(600f, 0, 0);
+                contact.otherCollider.rigidbody.AddForce(force, 0, 0);
             }
         }
     }
