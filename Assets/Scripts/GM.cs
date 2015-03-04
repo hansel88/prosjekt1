@@ -55,6 +55,8 @@ public class GM : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+
+        Screen.showCursor = false;
         if (instance == null)
             instance = this;
         else if (instance != this)
@@ -230,7 +232,7 @@ public class GM : MonoBehaviour
         {
             case 0: Application.LoadLevel("Scene1"); break;
             case 1: Application.LoadLevel("Scene2"); break;
-            case 2: Application.LoadLevel("Main Menu"); break;
+            case 2: Application.LoadLevel("Menu2"); break;
         }
     }
 }
