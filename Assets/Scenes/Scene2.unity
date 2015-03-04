@@ -74,6 +74,85 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &22922509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 22922512}
+  - 108: {fileID: 22922511}
+  - 95: {fileID: 22922510}
+  m_Layer: 0
+  m_Name: SpotlightFromFront
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &22922510
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22922509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee3e2d6b226accf4ea9ce446b2a105a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &22922511
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22922509}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .00999999978
+  m_Range: 1000
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &22922512
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22922509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .200000003, z: -27.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &165860213
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +499,6 @@ RectTransform:
   - {fileID: 1523614322}
   - {fileID: 878760558}
   - {fileID: 874375015}
-  - {fileID: 2079878627}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -634,7 +712,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &874375014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1088,7 @@ MonoBehaviour:
   resetDelay: 1
   paddle: {fileID: 151186, guid: 114000819f733724ea3612e69e84e38f, type: 2}
   livesText: {fileID: 1523614323}
-  ScoreText: {fileID: 2079878628}
+  ScoreText: {fileID: 0}
   gameOver: {fileID: 874375014}
   youWon: {fileID: 878760555}
   youWonSound: {fileID: 0}
@@ -1020,6 +1098,9 @@ MonoBehaviour:
   whickedSickSound: {fileID: 0}
   rampageSound: {fileID: 103190, guid: dc0fa2ebac6e78a4581e9028988dcbeb, type: 2}
   godlikeSound: {fileID: 103190, guid: 04d2b6d5546fc8e43ad48645280d90b9, type: 2}
+  unstoppableSound2: {fileID: 0}
+  dominatingSound2: {fileID: 0}
+  godlikeSound2: {fileID: 0}
   backGroundMusicLev1: {fileID: 135296, guid: dddeb5e181fdb15418882fb10ea9261a, type: 2}
   backGroundMusicLev2: {fileID: 135296, guid: ced423c20b7a50e4089a4daacb5987da, type: 2}
   bricksPrefab: {fileID: 122148, guid: 23b5321a8ed2f6242aa85d105a1c5c06, type: 2}
@@ -1098,17 +1179,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &2081930819
 GameObject:
   m_ObjectHideFlags: 0
