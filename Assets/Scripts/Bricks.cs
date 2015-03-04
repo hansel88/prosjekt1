@@ -4,9 +4,6 @@ using System;
 
 public class Bricks : MonoBehaviour {
 
-    //public GameObject brickParticle;
-  //  public AudioClip sound1;
-   // public AudioSource source;
     public GameObject sound;
     public GameObject sound2;
     public GameObject sound3;
@@ -18,16 +15,15 @@ public class Bricks : MonoBehaviour {
 
     void awake()
     {
-        //source = GetComponent<AudioSource>();
+
     }
 
     void OnCollisionEnter (Collision other)
     {
-        Debug.Log("OnCollisionEnter in Bricks.cs called");
-
+        Debug.Log("oncollision bricks");
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
-
+        GM.instance.BricksHitInARow++;
 
         switch (GM.instance.getCurrentLevel())
         {
@@ -36,7 +32,7 @@ public class Bricks : MonoBehaviour {
                 {
                     case 1: GameObject.Instantiate(sound); break;
                     case 2: GameObject.Instantiate(sound2); break;
-                    case 3: GameObject.Instantiate(sound2); break;
+                    case 3: GameObject.Instantiate(sound); break;
                     default: GameObject.Instantiate(sound); break;
                 }
                 break;
