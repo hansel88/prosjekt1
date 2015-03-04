@@ -150,9 +150,9 @@ public class GM : MonoBehaviour
         }
 
         ScoreText.text = "Score: " + this.Score;
-        Invoke("checkAwesomeness", 0.5f);
         bricks--;
         CheckGameOver();
+        Invoke("checkAwesomeness", 0.5f);
     }
 
     private void checkAwesomeness()
