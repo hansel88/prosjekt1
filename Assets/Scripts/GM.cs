@@ -6,7 +6,12 @@ public class GM : MonoBehaviour
 {
 
     public int lives = 3;
-    public int bricks = 72;
+    private int bricks = 72;
+    public int Bricks
+    {
+        get { return this.bricks; }
+        set { this.bricks = value; }
+    }
     public float resetDelay = 1f;
     public GameObject paddle;
     
@@ -43,13 +48,6 @@ public class GM : MonoBehaviour
     {
         get { return this.paddleHitCountWithBricksDestroyedInBetween; }
         set { this.paddleHitCountWithBricksDestroyedInBetween = value; }
-    }
-
-    private int lastNumberOfBricksRemaining = 0;
-    public int LastNumberOfBricksRemaining
-    {
-        get { return this.lastNumberOfBricksRemaining; }
-        set { this.lastNumberOfBricksRemaining = value; }
     }
 
     private int bricksHitInARow = 0;
@@ -154,7 +152,6 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
-        Debug.Log("hits in a row: " + this.BricksHitInARow);
         int scoreToBeAdded = 0;
         if(this.BricksHitInARow <= 1)
         {
@@ -162,11 +159,11 @@ public class GM : MonoBehaviour
         }
         else
         {
-            scoreToBeAdded += this.BricksHitInARow * 2;
+            scoreToBeAdded += this.BricksHitInARow * this.BricksHitInARow;
         }
 
-        if (this.PaddleHitCount > 0)
-            this.Score += this.PaddleHitCountWithBricksDestroyedInBetween * scoreToBeAdded;
+        if (this.PaddleHitCountWithBricksDestroyedInBetween > 0)
+            this.Score += (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
         else this.Score += scoreToBeAdded;
 
         ScoreText.text = "Score: " + this.Score;
