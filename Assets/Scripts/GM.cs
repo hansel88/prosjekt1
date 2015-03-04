@@ -6,7 +6,12 @@ public class GM : MonoBehaviour
 {
 
     public int lives = 3;
-    public int bricks = 72;
+    private int bricks = 72;
+    public int Bricks
+    {
+        get { return this.bricks; }
+        set { this.bricks = value; }
+    }
     public float resetDelay = 1f;
     public GameObject paddle;
     
@@ -32,10 +37,17 @@ public class GM : MonoBehaviour
     public static GM instance = null;
 
     private GameObject clonePaddle;
-    private int hitCount = 0;
-    public int HitCount {
-        get { return this.hitCount; }
-        set { this.hitCount = value; }
+    private int paddleHitCount = 0;
+    public int PaddleHitCount {
+        get { return this.paddleHitCount; }
+        set { this.paddleHitCount = value; }
+    }
+
+    private int paddleHitCountWithBricksDestroyedInBetween= 0;
+    public int PaddleHitCountWithBricksDestroyedInBetween
+    {
+        get { return this.paddleHitCountWithBricksDestroyedInBetween; }
+        set { this.paddleHitCountWithBricksDestroyedInBetween = value; }
     }
 
     private int bricksHitInARow = 0;
@@ -114,6 +126,7 @@ public class GM : MonoBehaviour
        // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
         // backGroundMusicLev1.audio.volume = 0.1f;
         //Invoke("setMaxVolumeForBackGroundMusic", 3);
+        this.paddleHitCountWithBricksDestroyedInBetween = 0;
         this.BricksHitInARow = 0;
         resetHitCount();
         lives--;
@@ -125,7 +138,7 @@ public class GM : MonoBehaviour
 
     private void resetHitCount()
     {
-        this.HitCount = 0;
+        this.PaddleHitCount = 0;
     }
 
     private void setMaxVolumeForBackGroundMusic()
@@ -141,7 +154,6 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
-        Debug.Log("hits in a row: " + this.BricksHitInARow);
         int scoreToBeAdded = 0;
         if(this.BricksHitInARow <= 1)
         {
@@ -149,11 +161,11 @@ public class GM : MonoBehaviour
         }
         else
         {
-            scoreToBeAdded += this.BricksHitInARow * 2;
+            scoreToBeAdded += this.BricksHitInARow * this.BricksHitInARow;
         }
 
-        if (this.HitCount > 0)
-            this.Score += this.HitCount * 2 * scoreToBeAdded;
+        if (this.PaddleHitCountWithBricksDestroyedInBetween > 0)
+            this.Score += (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
         else this.Score += scoreToBeAdded;
 
         ScoreText.text = "Score: " + this.Score;

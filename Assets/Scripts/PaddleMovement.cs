@@ -7,6 +7,7 @@ public class PaddleMovement : MonoBehaviour {
     
 
     public float paddleSpeed = 0.1f;
+    private int brickCheck = 0;
 
 
     private Vector3 playerPos = new Vector3(0, -2f, 0);
@@ -31,9 +32,19 @@ public class PaddleMovement : MonoBehaviour {
         col.other.rigidbody.AddForceAtPosition(new Vector3(650f, 0, 0), OQ);     
  * 
  * */
+        /*
+        Debug.Log("Bricks total: " + GM.instance.Bricks);
+        Debug.Log("last checked bricks: " + GM.instance.LastNumberOfBricksRemaining);
+        Debug.Log("hit count: " + GM.instance.PaddleHitCountWithBricksDestroyedInBetween);
+         * */
+        if (GM.instance.Bricks != this.brickCheck)
+        {
+            GM.instance.PaddleHitCountWithBricksDestroyedInBetween++;
+        }
+        this.brickCheck = GM.instance.Bricks;
         GM.instance.BricksHitInARow = 0;
-        GM.instance.HitCount++;
-        int hits = GM.instance.HitCount;
+        GM.instance.PaddleHitCount++;
+        int hits = GM.instance.PaddleHitCount;
         float force = 300f;
         if(hits < 4)
         {
@@ -43,7 +54,7 @@ public class PaddleMovement : MonoBehaviour {
         {
             force = 350f;
         }
-        else if(hits >= 12)
+        else if(hits >= 12) 
         {
             force = 400f;
         }
