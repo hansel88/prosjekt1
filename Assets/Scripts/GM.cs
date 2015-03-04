@@ -140,14 +140,19 @@ public class GM : MonoBehaviour
     public void DestroyBrick()
     {
         Debug.Log("hits in a row: " + this.BricksHitInARow);
+        int scoreToBeAdded = 0;
         if(this.BricksHitInARow <= 1)
         {
-            this.Score += 1;
+            scoreToBeAdded += 1;
         }
         else
         {
-            this.Score += this.BricksHitInARow * 2;
+            scoreToBeAdded += this.BricksHitInARow * 2;
         }
+
+        if (this.HitCount > 0)
+            this.Score += this.HitCount * 2 * scoreToBeAdded;
+        else this.Score += scoreToBeAdded;
 
         ScoreText.text = "Score: " + this.Score;
         bricks--;
