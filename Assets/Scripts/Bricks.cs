@@ -25,7 +25,7 @@ public class Bricks : MonoBehaviour {
     {
         System.Random r = new System.Random();
         int random = r.Next(1, 4);
-
+        GM.instance.BricksHitInARow++;
 
         switch (GM.instance.getCurrentLevel())
         {

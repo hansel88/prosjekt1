@@ -17,6 +17,7 @@ public class GM : MonoBehaviour
     public GameObject gameOverSound;
     public GameObject unstoppableSound;
     public GameObject holyShitSound;
+    public GameObject whickedSickSound;
     public GameObject rampageSound;
     public GameObject godlikeSound;
     public GameObject backGroundMusicLev1;
@@ -33,6 +34,9 @@ public class GM : MonoBehaviour
     private int hitCount = 0;
     public int HitCount { get; set; }
 
+    private int bricksHitInARow = 0;
+    public int BricksHitInARow { get; set; }
+    
     // Use this for initialization
     void Awake()
     {
@@ -70,6 +74,7 @@ public class GM : MonoBehaviour
             youWon.SetActive(true);
             Time.timeScale = .25f;
             Invoke("loadNextLevel", 1f);
+            this.BricksHitInARow = 0;
         }
 
         if (lives < 1)
@@ -77,6 +82,7 @@ public class GM : MonoBehaviour
             gameOver.SetActive(true);
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
+            this.BricksHitInARow = 0;
         }
 
     }
@@ -92,6 +98,7 @@ public class GM : MonoBehaviour
        // backGroundMusicLev1.GetComponent<AudioSource>().volume = 0.1f;
         // backGroundMusicLev1.audio.volume = 0.1f;
         //Invoke("setMaxVolumeForBackGroundMusic", 3);
+        this.BricksHitInARow = 0;
         resetHitCount();
         lives--;
         livesText.text = "Lives: " + lives;
@@ -126,30 +133,36 @@ public class GM : MonoBehaviour
 
     private void playSoundCheck()
     {
-        switch (getCurrentLevel())
+        if(this.BricksHitInARow >= 4)
         {
-            case 1:
-                if (bricks == 60 || bricks == 30)
-                {
-                    GameObject.Instantiate(holyShitSound);
-                }
-                else if (bricks == 40 || bricks == 15)
-                {
-                    GameObject.Instantiate(rampageSound);
-                }
-                else if (bricks == 20 || bricks == 50)
-                {
-                    GameObject.Instantiate(unstoppableSound);
-                }
-                else if (bricks == 2 || bricks == 35)
-                {
-                    GameObject.Instantiate(godlikeSound);
-                }
-                break;
-            case 2: break;
-            default: break;
+            GameObject.Instantiate(whickedSickSound);
         }
-
+        else
+        {
+            switch (getCurrentLevel())
+            {
+                case 1:
+                    if (bricks == 60 || bricks == 30)
+                    {
+                        GameObject.Instantiate(holyShitSound);
+                    }
+                    else if (bricks == 40 || bricks == 15)
+                    {
+                        GameObject.Instantiate(rampageSound);
+                    }
+                    else if (bricks == 20 || bricks == 50)
+                    {
+                        GameObject.Instantiate(unstoppableSound);
+                    }
+                    else if (bricks == 2 || bricks == 35)
+                    {
+                        GameObject.Instantiate(godlikeSound);
+                    }
+                    break;
+                case 2: break;
+                default: break;
+            }
+        }
     }
 
     public int getCurrentLevel()

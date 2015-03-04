@@ -31,6 +31,7 @@ public class PaddleMovement : MonoBehaviour {
         col.other.rigidbody.AddForceAtPosition(new Vector3(650f, 0, 0), OQ);     
  * 
  * */
+        GM.instance.BricksHitInARow = 0;
         GM.instance.HitCount++;
         int hits = GM.instance.HitCount;
         float force = 500f;
