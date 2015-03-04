@@ -34,28 +34,28 @@ public class PaddleMovement : MonoBehaviour {
         GM.instance.BricksHitInARow = 0;
         GM.instance.HitCount++;
         int hits = GM.instance.HitCount;
-        float force = 500f;
+        float force = 300f;
         if(hits < 4)
         {
-            force = 500f;
+            force = 300f;
         }
         else if(hits >= 4 && hits <= 11)
         {
-            force = 550f;
+            force = 350f;
         }
         else if(hits >= 12)
         {
-            force = 600f;
+            force = 400f;
         }
         
-        foreach (ContactPoint contact in col.contacts)
+        /*foreach (ContactPoint contact in col.contacts)
         {
             if (contact.thisCollider == collider)
             {
                 float z = contact.point.x - transform.position.x;
                 contact.otherCollider.rigidbody.AddForce(force, 0, 0);
             }
-        }
+        }*/
     }
     /*
 
