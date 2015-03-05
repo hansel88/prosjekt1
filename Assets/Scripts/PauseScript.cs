@@ -14,20 +14,25 @@ public class PauseScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            TogglePause();
             Screen.showCursor = true;
         }
     }
 
-    public void Pause()
+    public void TogglePause()
     {
         canvas.enabled = !canvas.enabled;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        if (canvas2.enabled)
+            GM.instance.pauseTimer();
+        else
+            GM.instance.resumeTimer();
     }
-     
-    public void LevelChange(int sceneToChangeTo)
+
+
+    public void LevelChange(bool menu)
     {
-        Application.LoadLevel(sceneToChangeTo);
+        GM.instance.loadNextLevel(menu);
     }
 
     public void QuitGame()

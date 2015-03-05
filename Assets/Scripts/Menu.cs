@@ -8,9 +8,12 @@ public class Menu : MonoBehaviour
 
    public bool muteToggle = false;
 
-    public void ChangeToScene(int sceneToChangeTo)
+    public void ChangeToScene()
     {
-        Application.LoadLevel(sceneToChangeTo);
+        if (GM.instance == null)
+            Application.LoadLevel("Scene1");
+        else
+            GM.instance.loadNextLevel(false);
     }
 
     public void QuitGame()
