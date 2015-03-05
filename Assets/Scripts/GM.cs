@@ -16,6 +16,7 @@ public class GM : MonoBehaviour
     }
     public float resetDelay = 1f;
     public GameObject paddle;
+    //public GameObject ball;
     
     public Text livesText;
     public Text ScoreText;
