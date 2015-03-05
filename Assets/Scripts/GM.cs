@@ -99,7 +99,7 @@ public class GM : MonoBehaviour
         timer.Enabled = true;
     }
 
-    public void pausetimer()
+    public void pauseTimer()
     {
         timer.Stop();
     }
@@ -288,17 +288,23 @@ public class GM : MonoBehaviour
     {
         switch (Application.loadedLevelName)
         {
-            case "Main Menu": return 0;
+            case "Splash": return -2;
+            case "Splash2": return -1;
+            case "Menu2": return 0;
             case "Scene1": return 1;
             case "Scene2": return 2;
             default: return 0;
         }
     }
 
-    private void loadNextLevel()
+    public void loadNextLevel(bool loadMenu = false)
     {
+        if(loadMenu)
+            Application.LoadLevel("Menu2");
         switch(getCurrentLevel())
         {
+            case -2: Application.LoadLevel("Splash2"); break;
+            case -1: Application.LoadLevel("Menu2"); break;
             case 0: Application.LoadLevel("Scene1"); break;
             case 1: Application.LoadLevel("Scene2"); break;
             case 2: Application.LoadLevel("Menu2"); break;
