@@ -23,7 +23,7 @@ public class PauseScript : MonoBehaviour {
     {
         canvas.enabled = !canvas.enabled;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-        if (canvas2.enabled)
+        if (canvas.enabled)
             GM.instance.pauseTimer();
         else
             GM.instance.resumeTimer();
