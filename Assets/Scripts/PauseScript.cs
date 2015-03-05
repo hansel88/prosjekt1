@@ -14,7 +14,6 @@ public class PauseScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             Pause();
             Screen.showCursor = true;
         }

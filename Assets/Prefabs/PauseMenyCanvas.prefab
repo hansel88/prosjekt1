@@ -185,6 +185,7 @@ GameObject:
   - 223: {fileID: 22346618}
   - 114: {fileID: 11446616}
   - 114: {fileID: 11446618}
+  - 114: {fileID: 11481040}
   m_Layer: 5
   m_Name: PauseMenyCanvas
   m_TagString: Untagged
@@ -558,7 +559,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11446606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11446610
@@ -672,6 +685,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11481040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199e6ce834d9fcb49b93d9f76c8d8f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas2: {fileID: 22346618}
 --- !u!222 &22246600
 CanvasRenderer:
   m_ObjectHideFlags: 1
