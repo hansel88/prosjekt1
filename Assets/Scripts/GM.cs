@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Timers;
+using System;
 
 public class GM : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class GM : MonoBehaviour
     
     public Text livesText;
     public Text ScoreText;
+    public Text timeText;
     public GameObject gameOver;
     public GameObject youWon;
     public GameObject youWonSound;
@@ -31,7 +34,9 @@ public class GM : MonoBehaviour
     public GameObject godlikeSound2;
     public GameObject backGroundMusicLev1;
     public GameObject backGroundMusicLev2;
-
+    int secondsCounter = 0;
+    private static Timer timer;
+    
     
     public GameObject bricksPrefab;
     public static GM instance = null;
@@ -87,6 +92,12 @@ public class GM : MonoBehaviour
 
     public void Setup()
     {
+        score = 0;
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += new ElapsedEventHandler(OnTick);
+        timer.Enabled = true;
+        secondsCounter = 0;
+
         Time.timeScale = 1f;
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
@@ -96,6 +107,7 @@ public class GM : MonoBehaviour
     {
         if (bricks < 1)
         {
+            timer.Stop();
             youWon.SetActive(true);
             Time.timeScale = .25f;
             Invoke("loadNextLevel", 1f);
@@ -114,11 +126,30 @@ public class GM : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        TimeSpan ts = TimeSpan.FromSeconds(secondsCounter);
+        string seconds;
+        seconds = ts.Seconds < 10 ? "0" + ts.Seconds : ts.Seconds.ToString();
+        timeText.text = "Time: " + (ts.Minutes == 0 ? seconds : ts.Minutes + ":" + seconds);
+    }
+
+    void OnApplicationQuit()
+    {
+        timer.Stop();
+        timer = null;
+    }
+
     void Reset()
     {
         Time.timeScale = 1f;
         Application.LoadLevel(Application.loadedLevel);
         ScoreText.text = "Score: 0";
+    }
+
+    void OnTick(object sender, System.EventArgs e)
+    {
+        secondsCounter++;
     }
 
     public void LoseLife()
@@ -154,8 +185,17 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
+        calculateNewScore();
+        ScoreText.text = "Score: " + this.Score;
+        bricks--;
+        CheckGameOver();
+        Invoke("checkAwesomeness", 0.5f);
+    }
+
+    private void calculateNewScore()
+    {
         int scoreToBeAdded = 0;
-        if(this.BricksHitInARow <= 1)
+        if (this.BricksHitInARow <= 1)
         {
             scoreToBeAdded += 1;
         }
@@ -165,13 +205,13 @@ public class GM : MonoBehaviour
         }
 
         if (this.PaddleHitCountWithBricksDestroyedInBetween > 0)
-            this.Score += (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
-        else this.Score += scoreToBeAdded;
+        {
 
-        ScoreText.text = "Score: " + this.Score;
-        bricks--;
-        CheckGameOver();
-        Invoke("checkAwesomeness", 0.5f);
+            scoreToBeAdded = (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
+        }
+
+        //int x = ((500 - Mathf.Clamp(secondsCounter, 0, 499)) * 2 / 10) + 1;
+        this.Score += scoreToBeAdded;
     }
 
     private void checkAwesomeness()
@@ -246,5 +286,56 @@ public class GM : MonoBehaviour
             case 1: Application.LoadLevel("Scene2"); break;
             case 2: Application.LoadLevel("Menu2"); break;
         }
+    }
+
+    private void SaveHighScore(string name)
+    {
+        try
+        {
+            string key = String.Empty;
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!PlayerPrefs.HasKey(i + String.Empty))
+                {
+                    key = i + String.Empty;
+                    break;
+                }
+            }
+
+            PlayerPrefs.SetString(key, "Name : " + name + " - " + this.Score + "points (" + this.secondsCounter + "seconds)");
+        }
+        catch(Exception)
+        {
+            // Show error message
+        }
+    }
+
+    private String LoadHighScores()
+    {
+        try
+        {
+            String highscore = String.Empty;
+            string key = "0";
+            int x = 0;
+            while (PlayerPrefs.HasKey(key))
+            {
+                highscore += PlayerPrefs.GetString(key);
+                highscore += System.Environment.NewLine;
+
+                x++;
+                key = x + String.Empty;
+            }
+
+            if(!highscore.Equals(String.Empty))
+                return highscore;
+        }
+        catch (Exception)
+        {
+            return "Couldnt load highscores";
+            // Show error message
+        }
+
+        return "No highscores available. Doh!";
+       
     }
 }

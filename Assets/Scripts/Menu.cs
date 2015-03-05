@@ -25,6 +25,10 @@ public class Menu : MonoBehaviour
         {
             AudioListener.volume = 0;
         }
+        else if (muteToggle == false)
+        {
+            AudioListener.volume = 1;
+        }
    
     }
 
