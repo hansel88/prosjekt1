@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SplashScript : MonoBehaviour {
+public class SplashScript2 : MonoBehaviour {
     public float delayTime = 5;
 
 
     IEnumerator Start () {
         yield return new WaitForSeconds(delayTime);
         
-        Application.LoadLevel ("Splash2");
+        Application.LoadLevel ("Menu2");
 
 	}
 }
