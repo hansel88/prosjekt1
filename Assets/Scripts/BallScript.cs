@@ -53,6 +53,9 @@ public class BallScript : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1") && ballInPlay == false)
         {
+            if (!GM.instance.timerStarted)
+                GM.instance.startTimer();
+
             transform.parent = null;
             ballInPlay = true;
             rb.isKinematic = false;

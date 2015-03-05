@@ -36,6 +36,7 @@ public class GM : MonoBehaviour
     public GameObject backGroundMusicLev2;
     int secondsCounter = 0;
     private static Timer timer;
+    public bool timerStarted = false;
     
     
     public GameObject bricksPrefab;
@@ -90,12 +91,17 @@ public class GM : MonoBehaviour
 
     }
 
-    public void Setup()
+    public void startTimer()
     {
-        score = 0;
+        timerStarted = true;
         timer = new System.Timers.Timer(1000);
         timer.Elapsed += new ElapsedEventHandler(OnTick);
         timer.Enabled = true;
+    }
+
+    public void Setup()
+    {
+        score = 0;
         secondsCounter = 0;
 
         Time.timeScale = 1f;
@@ -142,6 +148,7 @@ public class GM : MonoBehaviour
 
     void Reset()
     {
+        this.timerStarted = false;
         Time.timeScale = 1f;
         Application.LoadLevel(Application.loadedLevel);
         ScoreText.text = "Score: 0";
@@ -326,7 +333,7 @@ public class GM : MonoBehaviour
                 key = x + String.Empty;
             }
 
-            if(!highscore.Equals(String.Empty))
+            if(!String.IsNullOrEmpty(highscore))
                 return highscore;
         }
         catch (Exception)

@@ -45,28 +45,28 @@ public class PaddleMovement : MonoBehaviour {
         GM.instance.BricksHitInARow = 0;
         GM.instance.PaddleHitCount++;
         int hits = GM.instance.PaddleHitCount;
-        float force = 300f;
+        float force = 400f;
         if(hits < 4)
-        {
-            force = 300f;
-        }
-        else if(hits >= 4 && hits <= 11)
-        {
-            force = 350f;
-        }
-        else if(hits >= 12) 
         {
             force = 400f;
         }
+        else if(hits >= 4 && hits <= 11)
+        {
+            force = 450f;
+        }
+        else if(hits >= 12) 
+        {
+            force = 500f;
+        }
         
-        /*foreach (ContactPoint contact in col.contacts)
+        foreach (ContactPoint contact in col.contacts)
         {
             if (contact.thisCollider == collider)
             {
                 float z = contact.point.x - transform.position.x;
-                contact.otherCollider.rigidbody.AddForce(force, 0, 0);
+                contact.otherCollider.rigidbody.AddForce(force * z, 0, 0);
             }
-        }*/
+        }
     }
     /*
 
