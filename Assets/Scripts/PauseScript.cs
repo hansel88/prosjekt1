@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PauseScript : MonoBehaviour {
 
-    public Canvas canvas2;
+    public Canvas canvas;
 
     void Start()
     {
-        canvas2.enabled = false;
+        canvas.enabled = false;
     }
 
     void Update()
@@ -21,10 +21,10 @@ public class PauseScript : MonoBehaviour {
 
     public void Pause()
     {
-        canvas2.enabled = !canvas2.enabled;
+        canvas.enabled = !canvas.enabled;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
-
+     
     public void LevelChange(int sceneToChangeTo)
     {
         Application.LoadLevel(sceneToChangeTo);
