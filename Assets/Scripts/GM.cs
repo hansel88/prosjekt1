@@ -72,10 +72,6 @@ public class GM : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        timer = new System.Timers.Timer(1000);
-        timer.Elapsed += new ElapsedEventHandler(OnTick);
-        timer.Enabled = true;
-
 
         Screen.showCursor = false;
         if (instance == null)
@@ -97,6 +93,11 @@ public class GM : MonoBehaviour
     public void Setup()
     {
         score = 0;
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += new ElapsedEventHandler(OnTick);
+        timer.Enabled = true;
+        secondsCounter = 0;
+
         Time.timeScale = 1f;
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
@@ -106,6 +107,7 @@ public class GM : MonoBehaviour
     {
         if (bricks < 1)
         {
+            timer.Stop();
             youWon.SetActive(true);
             Time.timeScale = .25f;
             Invoke("loadNextLevel", 1f);
@@ -126,7 +128,10 @@ public class GM : MonoBehaviour
 
     void Update()
     {
-        timeText.text = "Time: " + secondsCounter.ToString();
+        TimeSpan ts = TimeSpan.FromSeconds(secondsCounter);
+        string seconds;
+        seconds = ts.Seconds < 10 ? "0" + ts.Seconds : ts.Seconds.ToString();
+        timeText.text = "Time: " + (ts.Minutes == 0 ? seconds : ts.Minutes + ":" + seconds);
     }
 
     void OnApplicationQuit()
@@ -285,11 +290,52 @@ public class GM : MonoBehaviour
 
     private void SaveHighScore(string name)
     {
-        PlayerPrefs.SetString(name, "Score: " + this.Score + " (" + this.secondsCounter + "seconds)");
+        try
+        {
+            string key = String.Empty;
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!PlayerPrefs.HasKey(i + String.Empty))
+                {
+                    key = i + String.Empty;
+                    break;
+                }
+            }
+
+            PlayerPrefs.SetString(key, "Name : " + name + " - " + this.Score + "points (" + this.secondsCounter + "seconds)");
+        }
+        catch(Exception)
+        {
+            // Show error message
+        }
     }
 
-    private void LoadHighScores()
+    private String LoadHighScores()
     {
+        try
+        {
+            String highscore = String.Empty;
+            string key = "0";
+            int x = 0;
+            while (PlayerPrefs.HasKey(key))
+            {
+                highscore += PlayerPrefs.GetString(key);
+                highscore += System.Environment.NewLine;
 
+                x++;
+                key = x + String.Empty;
+            }
+
+            if(!highscore.Equals(String.Empty))
+                return highscore;
+        }
+        catch (Exception)
+        {
+            return "Couldnt load highscores";
+            // Show error message
+        }
+
+        return "No highscores available. Doh!";
+       
     }
 }
