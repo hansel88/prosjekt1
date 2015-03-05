@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Timers;
+using System;
 
 public class GM : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class GM : MonoBehaviour
     
     public Text livesText;
     public Text ScoreText;
+    public Text timeText;
     public GameObject gameOver;
     public GameObject youWon;
     public GameObject youWonSound;
@@ -31,7 +34,9 @@ public class GM : MonoBehaviour
     public GameObject godlikeSound2;
     public GameObject backGroundMusicLev1;
     public GameObject backGroundMusicLev2;
-
+    int secondsCounter = 0;
+    private static Timer timer;
+    
     
     public GameObject bricksPrefab;
     public static GM instance = null;
@@ -67,6 +72,10 @@ public class GM : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += new ElapsedEventHandler(OnTick);
+        timer.Enabled = true;
+
 
         Screen.showCursor = false;
         if (instance == null)
@@ -87,6 +96,7 @@ public class GM : MonoBehaviour
 
     public void Setup()
     {
+        score = 0;
         Time.timeScale = 1f;
         clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
         Instantiate(bricksPrefab, transform.position, Quaternion.identity);
@@ -114,11 +124,27 @@ public class GM : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        timeText.text = "Time: " + secondsCounter.ToString();
+    }
+
+    void OnApplicationQuit()
+    {
+        timer.Stop();
+        timer = null;
+    }
+
     void Reset()
     {
         Time.timeScale = 1f;
         Application.LoadLevel(Application.loadedLevel);
         ScoreText.text = "Score: 0";
+    }
+
+    void OnTick(object sender, System.EventArgs e)
+    {
+        secondsCounter++;
     }
 
     public void LoseLife()
@@ -154,8 +180,17 @@ public class GM : MonoBehaviour
 
     public void DestroyBrick()
     {
+        calculateNewScore();
+        ScoreText.text = "Score: " + this.Score;
+        bricks--;
+        CheckGameOver();
+        Invoke("checkAwesomeness", 0.5f);
+    }
+
+    private void calculateNewScore()
+    {
         int scoreToBeAdded = 0;
-        if(this.BricksHitInARow <= 1)
+        if (this.BricksHitInARow <= 1)
         {
             scoreToBeAdded += 1;
         }
@@ -165,13 +200,13 @@ public class GM : MonoBehaviour
         }
 
         if (this.PaddleHitCountWithBricksDestroyedInBetween > 0)
-            this.Score += (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
-        else this.Score += scoreToBeAdded;
+        {
 
-        ScoreText.text = "Score: " + this.Score;
-        bricks--;
-        CheckGameOver();
-        Invoke("checkAwesomeness", 0.5f);
+            scoreToBeAdded = (this.PaddleHitCountWithBricksDestroyedInBetween * 4) + scoreToBeAdded;
+        }
+
+        //int x = ((500 - Mathf.Clamp(secondsCounter, 0, 499)) * 2 / 10) + 1;
+        this.Score += scoreToBeAdded;
     }
 
     private void checkAwesomeness()
@@ -246,5 +281,15 @@ public class GM : MonoBehaviour
             case 1: Application.LoadLevel("Scene2"); break;
             case 2: Application.LoadLevel("Menu2"); break;
         }
+    }
+
+    private void SaveHighScore(string name)
+    {
+        PlayerPrefs.SetString(name, "Score: " + this.Score + " (" + this.secondsCounter + "seconds)");
+    }
+
+    private void LoadHighScores()
+    {
+
     }
 }

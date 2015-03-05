@@ -3,11 +3,10 @@ using System.Collections;
 
 public class PauseScript : MonoBehaviour {
 
-    Canvas canvas2;
+    public Canvas canvas2;
 
     void Start()
     {
-        canvas2 = GetComponent<Canvas>();
         canvas2.enabled = false;
     }
 
