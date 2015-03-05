@@ -99,6 +99,15 @@ public class GM : MonoBehaviour
         timer.Enabled = true;
     }
 
+    public void pausetimer()
+    {
+        timer.Stop();
+    }
+
+    public void resumeTimer(){
+        timer.Start();
+    }
+
     public void Setup()
     {
         score = 0;
@@ -123,6 +132,7 @@ public class GM : MonoBehaviour
 
         if (lives < 1)
         {
+            timer.Stop();
             gameOver.SetActive(true);
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
