@@ -6,7 +6,7 @@ public class PaddleScript : MonoBehaviour {
     public float yposition = 0;
     public float zposition = 0;
     public float xboundary = 0;
-    public float maxBoundary = 20;
+    public float maxBoundary = 10;
     public float speed = 115;
     public GameObject Ball;
     public GameObject attachedBall = null;
