@@ -59,7 +59,7 @@ public class BallScript : MonoBehaviour {
             transform.parent = null;
             ballInPlay = true;
             rb.isKinematic = false;
-            rb.AddForce(new Vector3(10f, ballInitialVelocity, 0));
+            rb.AddForce(new Vector3(40f, ballInitialVelocity, 0));
         }
     }
 }
