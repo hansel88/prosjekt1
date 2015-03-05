@@ -2284,7 +2284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  bricks: 72
   resetDelay: 1
   paddle: {fileID: 151186, guid: 114000819f733724ea3612e69e84e38f, type: 2}
   livesText: {fileID: 1523614323}
