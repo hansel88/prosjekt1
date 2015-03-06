@@ -627,16 +627,15 @@ RectTransform:
 --- !u!114 &504333914
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11481040, guid: 07aacadba80597748bb61c1d6c822c1d,
-    type: 2}
-  m_PrefabInternal: {fileID: 2065594131}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504333912}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 199e6ce834d9fcb49b93d9f76c8d8f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas2: {fileID: 504333917}
+  canvas: {fileID: 504333917}
 --- !u!114 &504333915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -745,6 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1692,9 +1693,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 504333914}
         m_MethodName: LevelChange
-        m_Mode: 3
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1702,7 +1703,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -1795,7 +1796,7 @@ MonoBehaviour:
   holyShitSound: {fileID: 103190, guid: 00c43543615e5b443ad2a3132849e5f9, type: 2}
   whickedSickSound: {fileID: 103190, guid: 1b9eb4a16e5dc53498344e319c85ae35, type: 2}
   rampageSound: {fileID: 103190, guid: dc0fa2ebac6e78a4581e9028988dcbeb, type: 2}
-  godlikeSound: {fileID: 103190, guid: 04d2b6d5546fc8e43ad48645280d90b9, type: 2}
+  godlikeSound: {fileID: 0}
   unstoppableSound2: {fileID: 103190, guid: dec25ea8f3de1e3499780de8535372fc, type: 2}
   dominatingSound2: {fileID: 103190, guid: b7fcee3c1037d56488e0d2daf18e80a9, type: 2}
   godlikeSound2: {fileID: 103190, guid: 552cda08f6a19754bbd2788742891744, type: 2}
@@ -1893,7 +1894,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 504333914}
-        m_MethodName: Pause
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2133,7 +2134,7 @@ Prefab:
       objectReference: {fileID: 504333914}
     - target: {fileID: 11446608, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
+      value: TogglePause
       objectReference: {fileID: 0}
     - target: {fileID: 11446596, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2146,7 +2147,7 @@ Prefab:
     - target: {fileID: 11446612, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 504333914}
     - target: {fileID: 11446612, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
@@ -2154,7 +2155,7 @@ Prefab:
     - target: {fileID: 11446590, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 504333914}
     - target: {fileID: 11446590, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LevelChange
@@ -2162,6 +2163,14 @@ Prefab:
     - target: {fileID: 11446596, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446590, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446590, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07aacadba80597748bb61c1d6c822c1d, type: 2}
@@ -2317,7 +2326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 504333914}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
