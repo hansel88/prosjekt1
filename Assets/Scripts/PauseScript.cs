@@ -29,7 +29,10 @@ public class PauseScript : MonoBehaviour {
             GM.instance.resumeTimer();
     }
 
-
+    public void RestartLevel()
+    {
+        GM.instance.getCurrentLevel();
+    }
     public void LevelChange(bool menu)
     {
         GM.instance.loadNextLevel(menu);

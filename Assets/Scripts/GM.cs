@@ -153,8 +153,8 @@ public class GM : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        timer.Stop();
-        timer = null;
+        //timer.Stop();
+        //timer = null;
     }
 
     void Reset()

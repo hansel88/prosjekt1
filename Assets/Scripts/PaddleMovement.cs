@@ -45,26 +45,39 @@ public class PaddleMovement : MonoBehaviour {
         GM.instance.BricksHitInARow = 0;
         GM.instance.PaddleHitCount++;
         int hits = GM.instance.PaddleHitCount;
-        float force = 400f;
+
+        /*
+        Vector3 PO = col.other.transform.position;
+        Vector3 NO = new Vector3(0, 1, 0);
+        Vector3 NO_PO_Scaled = Vector3.Scale(NO, PO);
+        NO_PO_Scaled = Vector3.Scale(NO_PO_Scaled, new Vector3(2, 2, 2));
+        NO_PO_Scaled = Vector3.Scale(NO_PO_Scaled, NO);
+        Vector3 OQ = PO - NO_PO_Scaled;
+
+        col.collider.rigidbody.AddForce(OQ);
+         * */
+
+        float force = 350;
         if(hits < 4)
         {
-            force = 400f;
+            force = 350;
         }
         else if(hits >= 4 && hits <= 11)
         {
-            force = 450f;
+            force = 400;
         }
         else if(hits >= 12) 
         {
-            force = 500f;
+            force = 450;
         }
+        
         
         foreach (ContactPoint contact in col.contacts)
         {
             if (contact.thisCollider == collider)
             {
                 float z = contact.point.x - transform.position.x;
-                contact.otherCollider.rigidbody.AddForce(force * z, 0, 0);
+                contact.otherCollider.rigidbody.AddForce(z + 100f, z + 100f, 0);
             }
         }
     }
