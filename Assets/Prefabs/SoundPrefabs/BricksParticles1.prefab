@@ -277,7 +277,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 4
+    type: 5
     radius: 1
     angle: 25
     length: 5
@@ -378,9 +378,9 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
   RotationModule:
-    enabled: 0
+    enabled: 1
     curve:
-      scalar: .785398126
+      scalar: 1.57079625
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -933,7 +933,7 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     curve:
-      scalar: .785398185
+      scalar: .785398126
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1097,7 +1097,7 @@ ParticleSystemRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255

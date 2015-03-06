@@ -21,6 +21,13 @@ public class Menu : MonoBehaviour
         Application.Quit();
         Debug.Log("Game is exiting");
     }
+
+    public void LevelSelect(int SceneToChangeTo)
+    {
+        Application.LoadLevel(SceneToChangeTo);
+
+
+    }
     
     public void MuteGame(){
 

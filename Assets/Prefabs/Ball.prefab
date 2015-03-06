@@ -71,7 +71,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42198b891892fdb4ba2b342806ba5eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballInitialVelocity: 500
+  ballInitialVelocity: 0
 --- !u!135 &13578660
 SphereCollider:
   m_ObjectHideFlags: 1
