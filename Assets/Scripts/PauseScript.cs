@@ -31,11 +31,18 @@ public class PauseScript : MonoBehaviour {
 
     public void RestartLevel()
     {
-        GM.instance.getCurrentLevel();
+        Debug.Log(Application.loadedLevelName);
+        Application.LoadLevel(Application.loadedLevelName);
     }
-    public void LevelChange(bool menu)
+
+    public void loadMainMenu()
     {
-        GM.instance.loadNextLevel(menu);
+        GM.instance.loadNextLevel(true);
+    }
+
+    public void LevelChange()
+    {
+        GM.instance.loadNextLevel(false);
     }
 
     public void QuitGame()

@@ -185,7 +185,6 @@ GameObject:
   - 223: {fileID: 22346618}
   - 114: {fileID: 11446616}
   - 114: {fileID: 11446618}
-  - 114: {fileID: 11443360}
   m_Layer: 5
   m_Name: PauseMenyCanvas
   m_TagString: Untagged
@@ -193,7 +192,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11443360
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -293,9 +291,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11443360}
-        m_MethodName: LevelChange
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -395,7 +390,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11443360}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -572,7 +566,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11443360}
         m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
@@ -646,7 +639,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11443360}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
