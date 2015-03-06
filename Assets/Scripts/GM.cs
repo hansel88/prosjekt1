@@ -302,13 +302,16 @@ public class GM : MonoBehaviour
     {
         if(loadMenu)
             Application.LoadLevel("Menu2");
-        switch(getCurrentLevel())
+        else
         {
-            case -2: Application.LoadLevel("Splash2"); break;
-            case -1: Application.LoadLevel("Menu2"); break;
-            case 0: Application.LoadLevel("Scene1"); break;
-            case 1: Application.LoadLevel("Scene2"); break;
-            case 2: Application.LoadLevel("Menu2"); break;
+            switch (getCurrentLevel())
+            {
+                case -2: Application.LoadLevel("Splash2"); break;
+                case -1: Application.LoadLevel("Menu2"); break;
+                case 0: Application.LoadLevel("Scene1"); break;
+                case 1: Application.LoadLevel("Scene2"); break;
+                case 2: Application.LoadLevel("Menu2"); break;
+            }
         }
     }
 
